@@ -1,0 +1,210 @@
+.filmcard-modal-backdrop {
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  padding: 20px 20px 0px 20px;
+  @include tablet {
+    padding: 0 36px;
+  }
+  @include desktop {
+    padding: 0;
+  }
+  transition: opacity 500ms $cubic;
+}
+
+.filmcard-modal-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filmcard-modal {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  background-color: #fff;
+  padding: 48px 20px 40px 20px;
+  max-width: 320px;
+  min-width: 280px;
+  opacity: 1;
+  @include tablet {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 704px;
+    display: flex;
+    align-items: flex-start;
+    max-width: none;
+    padding: 48px 32px 40px 32px;
+  }
+  @include desktop {
+    min-width: 806px;
+    padding: 50px 16px 50px 16px;
+  }
+
+  transition: transform 500ms $cubic, opacity 500ms $cubic, top 500ms $cubic;
+
+  .filmcard-modal-backdrop.is-hidden & {
+    opacity: 0;
+    @include tablet {
+      transform: translate(-50%, -170%);
+      top: -999px;
+    }
+  }
+}
+
+.filmcard__case {
+  @include tablet {
+    display: flex;
+  }
+}
+
+.filmcard-modal__close-btn {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  padding: 5px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.filmcard-modal__close-icon {
+  width: 20px;
+  height: 20px;
+  fill: #000;
+}
+
+.filmcard__poster {
+  height: auto;
+  @include mobile {
+    margin-bottom: 20px;
+  }
+}
+
+.filmcard__title {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+
+  @include desktop {
+    font-size: 30px;
+    line-height: 1.16;
+  }
+}
+
+.filmcard__stats {
+  width: 100%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 20px;
+
+  border-spacing: 0 8px;
+}
+
+.stats__stat-name {
+  line-height: 1.33;
+  color: $modal-color-text;
+}
+
+.stats__stat-value {
+  line-height: 1.16;
+}
+
+.stats__stat-value--highlighted {
+  display: inline-flex;
+  background-color: $background-color-reting;
+  padding: 2px 12px;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.33;
+
+  color: #fff;
+
+  border-radius: 5px;
+}
+
+.original-title {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.filmcard__header {
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  line-height: 1.33;
+  font-size: 12px;
+}
+
+.filmcard__about {
+  line-height: 1.66;
+  margin-bottom: 20px;
+  font-size: 12px;
+
+  @include tablet {
+    width: 265px;
+  }
+  @include desktop {
+    width: 391px;
+  }
+}
+
+.block-scroll {
+  overflow: hidden;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  @include desktop {
+    justify-content: flex-start;
+  }
+}
+
+.filmcard__btn {
+  display: flex;
+  width: 110px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-transform: uppercase;
+  line-height: 1.33;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+
+  transition: all $transition-time $cubic;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: $background-color-reting;
+    border: none;
+  }
+
+  @include tablet {
+    width: 125px;
+  }
+
+  @include desktop {
+    width: 136px;
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
+}
